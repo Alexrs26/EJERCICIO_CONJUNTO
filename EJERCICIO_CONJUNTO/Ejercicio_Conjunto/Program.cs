@@ -6,7 +6,20 @@ namespace Ejercicio_Conjunto
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            try
+            {
+                Console.WriteLine("Hello World!");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("numero no valido");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("formato no valido");
+            }
+                
+            
         }
         static void anadirDato()
         {
