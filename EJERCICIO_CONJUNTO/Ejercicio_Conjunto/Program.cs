@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Ejercicio_Conjunto
 {
@@ -8,64 +8,62 @@ namespace Ejercicio_Conjunto
         {
             try
             {
-              string[] nombres = { "Alex", "Elisabeth", "Diego", "", " ", " ", " ", " ", " ", " "};
+              string[] nombres = { "ALEX", "ELISABETH", "DIEGO", "", " ", " ", " ", " ", " ", " "};
               int capacidad = 10;
               int cantidad = 3;
               int i;
                 int n;
+                Console.WriteLine("Datos iniciales: ");
                 for (i = 0; i < cantidad; i++)
                     Console.Write("{0} ", nombres[i]);
                 Console.WriteLine();
-                while ( i != 5)
+                while ( i <=4)
                 {
                     if (cantidad < capacidad)
                     {
-                        Console.WriteLine("Menú");
+                        Console.WriteLine("\nMenú");
                         Console.WriteLine("Pulsa 1 para añadir un nombre al final");
-                        Console.WriteLine("Pulsa 2 para insertar un dato en una posición");
-                        Console.WriteLine("Pulsa 3 para borrar un dato");
-                        Console.WriteLine("Pulsa 4 para mostrar los datos");
-                        Console.WriteLine("Pulsa 5 para salir de programa");
+                        Console.WriteLine("Pulsa 2 para mostrar los datos");
+                        Console.WriteLine("Pulsa 3 para buscar a partir de una letra");
+                        Console.WriteLine("Pulsa 4 para salir de programa");    
+
+                        Console.Write("\nOPCIÓN: ");
+                        
                         i = Convert.ToInt32(Console.ReadLine());
                         if ( i == 1)
                         {
-                            Console.WriteLine("¿Qué nombre quieres añadir?");
+                            Console.Write("¿Qué nombre quieres añadir?: ");
                             string nombre1 = Console.ReadLine();
                             nombres[cantidad] = nombre1;
                             cantidad++;
                         }
                         else if (i == 2)
                         {
-                            Console.WriteLine("¿Qué nombe quieres insertar?");
-                            string nombre2 = Console.ReadLine();
-                            Console.WriteLine("¿En qué posición");
-                            int posicion = Convert.ToInt32(Console.ReadLine());
-                            if (posicion <= cantidad && 1<= posicion)
+                            for (n = 0; n < cantidad; n++)
                             {
-                                for (n = cantidad; n > posicion -1; n--)
-                                {
-                                    nombres[n] = nombres[n - 1];
-                                }
+                                Console.Write(nombres[n]);
+                                Console.Write(" ");
                             }
-                            else
-                            {
-                                Console.WriteLine("La posición no existe.");
-                            }
+                            Console.Write("");
                         } 
                         else if ( i == 3)
                         {
-                            Console.WriteLine("Qué posición quieres borrar?");
-                            int posicionB = Convert.ToInt32(Console.ReadLine());
-                            nombres[posicionB] = " ";
-                        }
+                            Console.Write("Teclea la letra a partir de la que quieras buscar (en mayúsculas): ");
+                            char letraBuscar = Convert.ToChar(Console.ReadLine());
+
+                            for (n = 0; n < cantidad; n++)
+                            {
+                                if (nombres[n].Contains(letraBuscar))
+                                {
+                                    Console.WriteLine(nombres[n]);
+                                }
+                            }
+                        }  
                         else if (i == 4)
                         {
-                            for (n=0; n < cantidad; n++)
-                            {
-                                Console.Write(nombres[n]);
-                                Console.Write(" ");                                    
-                            }
-                            Console.Write("");
+                            Console.Clear();
+                            Console.WriteLine("Cerrando programa...");
+                            break;
                         }
                     }
                     else
@@ -86,3 +84,4 @@ namespace Ejercicio_Conjunto
         }
     }
 }
+
